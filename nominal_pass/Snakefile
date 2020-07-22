@@ -6,8 +6,9 @@ CHROMOSOMES = list(range(1,23))
 #for i in range(22):
     #CHROMOSOMES.append(i+1)
 
-CHROMOSOMES = sorted(CHROMOSOMES)[21]
+CHROMOSOMES = sorted(CHROMOSOMES)[21]  # specified on chromosome 22 for testing purposes
 
+# the results directory need to be made in advance
 rule all:
     input:
         expand('/u/project/zarlab/yiwen99/QTLtools_pipeline/nominal_pass/results/nominal_{chr_num}.txt',chr_num=CHROMOSOMES)
@@ -17,7 +18,7 @@ rule nominal:
     input:
         genotypes = BASE + '/annotation/genotypes_yri.vcf.gz',
         phenotypes = BASE + '/qtltools/kallisto_scaled_tpm/qqnorm_{chr_num}.bed.gz',
-        covariates = BASE + '/qtltools/qtl_shared/covariates.txt',
+        covariates = BASE + '/qtltools/qtl_shared/covariates.txt'
     output:
         "/u/project/zarlab/yiwen99/QTLtools_pipeline/nominal_pass/results/nominal_{chr_num}.txt"
     threads:
