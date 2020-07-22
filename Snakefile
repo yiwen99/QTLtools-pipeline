@@ -2,9 +2,9 @@
 
 BASE = '/u/project/zarlab/hjp/geuvadis_data'
 
-CHROMOSOMES = []
-for i in range(22):
-    CHROMOSOMES.append(i+1)
+CHROMOSOMES = list(range(1,23))
+#for i in range(22):
+    #CHROMOSOMES.append(i+1)
 
 CHROMOSOMES = sorted(CHROMOSOMES)[0]
 
@@ -16,7 +16,7 @@ rule all:
 rule nominal:
     input:
         genotypes = BASE + '/annotation/genotypes_yri.vcf.gz',
-        phenotypes = expand(BASE + '/qtltools/kallisto_scaled_tpm/qqnorm_{chr_num}.bed.gz',chr_num=CHROMOSOMES),
+        phenotypes = BASE + '/qtltools/kallisto_scaled_tpm/qqnorm_{chr_num}.bed.gz',
         covariates = BASE + '/qtltools/qtl_shared/covariates.txt',
         #region = expand('chr{chr_num}',chr_num=CHROMOSOMES)
     output:
