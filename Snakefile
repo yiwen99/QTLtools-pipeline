@@ -18,11 +18,11 @@ rule nominal:
         genotypes = BASE + '/annotation/genotypes_yri.vcf.gz',
         phenotypes = BASE + '/qtltools/kallisto_scaled_tpm/qqnorm_{chr_num}.bed.gz',
         covariates = BASE + '/qtltools/qtl_shared/covariates.txt',
-        #region = expand('chr{chr_num}',chr_num=CHROMOSOMES)
+      
     output:
         "/u/project/zarlab/yiwen99/QTLtools_pipeline/nominal_pass/results/nominal_{chr_num}.txt"
     threads:
         1
     shell: """
-        QTLtools cis --vcf {input.genotypes} --bed {input.phenotypes} --cov {input.covariates} --nominal 0.01 --region chr{wildcards.chr_num} --out /u/project/zarlab/yiwen99/QTLtools_pipeline/nominal_pass/results/nominal_{wildcards.chr_num}.txt
+        QTLtools cis --vcf {input.genotypes} --bed {input.phenotypes} --cov {input.covariates} --nominal 0.01 --out /u/project/zarlab/yiwen99/QTLtools_pipeline/nominal_pass/results/nominal_{wildcards.chr_num}.txt
         """
