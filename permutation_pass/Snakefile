@@ -8,6 +8,8 @@ CHROMOSOMES = list(range(1,23))
 
 CHROMOSOMES = sorted(CHROMOSOMES)[21]
 
+#results directory need to be made in advance
+
 rule all:
     input:
         expand('/u/project/zarlab/yiwen99/QTLtools_pipeline/permutation_pass/results/permutation_{chr_num}.txt',chr_num=CHROMOSOMES)
@@ -17,7 +19,7 @@ rule permutation:
     input:
         genotypes = BASE + '/annotation/genotypes_yri.vcf.gz',
         phenotypes = BASE + '/qtltools/kallisto_scaled_tpm/qqnorm_{chr_num}.bed.gz',
-        covariates = BASE + '/qtltools/qtl_shared/covariates.txt',
+        covariates = BASE + '/qtltools/qtl_shared/covariates.txt'
 
     output:
         "/u/project/zarlab/yiwen99/QTLtools_pipeline/permutation_pass/results/permutation_{chr_num}.txt"
