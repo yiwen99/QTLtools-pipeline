@@ -2,10 +2,11 @@
 
 BASE = '/u/project/zarlab/hjp/geuvadis_data'
 
-CHROMOSOMES = list(range(1,23))
+CHROMOSOMES = list(range(1,23)) #chromosome1 to chromosome22
 CHROMOSOMES = sorted(CHROMOSOMES)  
 
 # the results directory need to be made in advance
+
 rule all:
     input:
         expand('/u/project/zarlab/yiwen99/QTLtools_pipeline/nominal_pass/results/nominal_{chr_num}.txt',chr_num=CHROMOSOMES)
