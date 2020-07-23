@@ -10,18 +10,30 @@ CHROMOSOMES = sorted(CHROMOSOMES)
 rule all:
     input:
         expand('/u/project/zarlab/yiwen99/QTLtools_pipeline/permutation_pass/results/permutation_{chr_num}.txt',chr_num=CHROMOSOMES)
+        #expand('/u/project/zarlab/yiwen99/featureCounts_qtl/permutation/results/permutation_{chr_num}.txt',chr_num=CHROMOSOMES)
+
 
 
 rule permutation:
     input:
         genotypes = BASE + '/annotation/genotypes_yri.vcf.gz',
         phenotypes = BASE + '/qtltools/kallisto_scaled_tpm/qqnorm_{chr_num}.bed.gz',
+        #phenotypes = BASE + '/qtltools/featureCounts/qqnorm_{chr_num}.bed.gz'
         covariates = BASE + '/qtltools/qtl_shared/covariates.txt'
 
     output:
         "/u/project/zarlab/yiwen99/QTLtools_pipeline/permutation_pass/results/permutation_{chr_num}.txt"
+        #"/u/project/zarlab/yiwen99/featureCounts_qtl/permutation/results/permutation_{chr_num}.txt"
+
     threads:
         1
     shell: """
         QTLtools cis --vcf {input.genotypes} --bed {input.phenotypes} --cov {input.covariates} --permute 1000 --out /u/project/zarlab/yiwen99/QTLtools_pipeline/permutation_pass/results/permutation_{wildcards.chr_num}.txt --include-sample /u/project/zarlab/hjp/geuvadis_data/annotation/yri_sample_intersection.txt
         """
+        
+    #shell: """
+        #QTLtools cis --vcf {input.genotypes} --bed {input.phenotypes} --cov {input.covariates} --permute 1000 --out /u/project/zarlab/yiwen99/featureCounts_qtl/permutation/results/permutation_{wildcards.chr_num}.txt --include-sample /u/project/zarlab/hjp/geuvadis_data/annotation/yri_sample_intersection.txt
+        #"""
+        
+#commented parts for running for featureCounts data
+
