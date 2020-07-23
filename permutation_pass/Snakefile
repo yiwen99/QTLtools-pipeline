@@ -2,11 +2,8 @@
 
 BASE = '/u/project/zarlab/hjp/geuvadis_data'
 
-CHROMOSOMES = list(range(1,23))
-#for i in range(22):
-    #CHROMOSOMES.append(i+1)
-
-CHROMOSOMES = sorted(CHROMOSOMES)[21]
+CHROMOSOMES = list(range(1,23)) #chromosome 1 to 22
+CHROMOSOMES = sorted(CHROMOSOMES)
 
 #results directory need to be made in advance
 
