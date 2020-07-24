@@ -13,5 +13,5 @@ write.table(d[which(d$qval <= 0.1), ], "results.genes.significant0.05.txt", quot
 
 
 # Or run 
-#Rscript ./script/runFDR_cis.R permutation_full.txt.gz 0.1 results.genes.0.1
+#Rscript ~/script/runFDR_cis.R permutation_full.txt.gz 0.1 results.genes.0.1
 #in terminal
