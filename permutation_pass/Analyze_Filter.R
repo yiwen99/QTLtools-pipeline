@@ -35,7 +35,7 @@ pdf("featureCounts_permutation_raw_pval.pdf")
 hist(f$V19,breaks=100,xlab="raw p-values",main="raw p-values(Permutation Pass for featureCounts)")
 
 
-
+dev.off()
 
 # Or run 
 #Rscript ~/script/runFDR_cis.R permutation_full.txt.gz 0.1 results.genes.0.1
