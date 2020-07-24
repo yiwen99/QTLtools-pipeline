@@ -7,7 +7,7 @@ d = read.table("permutation_full.txt.gz",header=FALSE)
 d = d[!is.na(d$V19),]
 
 d$qval = qvalue(d$V19)$qvalue
-write.table(d[which(d$qval <= 0.1), ], "results.genes.significant0.05.txt", quote=FALSE, row.names=FALSE, col.names=FALSE)
+write.table(d[which(d$qval <= 0.1), ], "results_kallisto_0.10.genes.significant0.05.txt", quote=FALSE, row.names=FALSE, col.names=FALSE)
 
 
 
