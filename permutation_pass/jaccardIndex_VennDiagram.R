@@ -54,3 +54,5 @@ pdf("VennDiagram_sig0.01.pdf")
 draw.pairwise.venn(area1=length(k_sig_0.01),area2=length(f_sig_0.01),cross.area=length(intersect_0.01), col="black",fill=c("lightBlue","Orange"),category = c("kallisto","featureCounts") )
 
 
+dev.off() #to disconnet the opening pdf
+
