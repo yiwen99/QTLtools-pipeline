@@ -22,7 +22,7 @@ rule nominal:
         covariates = BASE + '/qtltools/kallisto_scaled_tpm/pca_10.txt'
         #covariates = BASE +'/qtltools/featureCounts/pca_10.txt'
     output:
-        "/u/project/zarlab/yiwen99/QTLtools_pipeline/nominal_pass/results/nominal_{chr_num}.txt"
+        "/u/project/zarlab/yiwen99/QTLtools_pipeline/nominal_10/results/nominal_{chr_num}.txt"
         #"/u/project/zarlab/yiwen99/featureCounts_qtl/nominal_10/results/nominal_{chr_num}.txt"
     threads:
         1
