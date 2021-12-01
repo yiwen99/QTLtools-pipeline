@@ -1,6 +1,6 @@
 # QTLtools-pipeline
 
-(still working on it)
+
 
 This is a pipeline for getting cis-eQTLs results by running the output from gene count matrix on QTLtools on both nominal pass and permutation pass.
 
